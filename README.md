@@ -1,3 +1,3 @@
-# From Pinia to Vuex
+# Events Crud using Vue 3 + Pinia
 
-This is the companion repo to the Vue Master course: From Pinia to Vuex.
+A Practice vue app for events crud which replaces vuex with pinia.
