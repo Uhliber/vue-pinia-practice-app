@@ -1,18 +1,19 @@
 import { defineStore } from 'pinia'
 import EventService from '../services/EventService.js'
+import { EventItem } from '@/types.js'
 
 export const useEventStore = defineStore('EventStore', {
   state() {
     return {
-      events: [],
-      event: {}
+      events: [] as EventItem[],
+      event: {} as EventItem
     }
   },
   getters: {
     numberOfEvents: state => state.events.length
   },
   actions: {
-    createEvent(event) {
+    createEvent(event: EventItem) {
       return EventService.postEvent(event)
         .then(() => {
           this.events.push(event)
@@ -30,7 +31,7 @@ export const useEventStore = defineStore('EventStore', {
           throw error
         })
     },
-    fetchEvent(id) {
+    fetchEvent(id: string) {
       return EventService.getEvent(id)
         .then(response => {
           this.event = response.data

@@ -1,8 +1,9 @@
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import EventCard from '../components/EventCard.vue'
 import { useEventStore } from '../stores/EventStore'
 
-export default {
+export default defineComponent({
   components: {
     EventCard
   },
@@ -26,10 +27,11 @@ export default {
       return this.eventStore.events
     }
   }
-}
+})
 </script>
 
 <template>
+  <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
   <h1>{{ eventStore.numberOfEvents }} Events for Good</h1>
   <div class="events">
     <EventCard

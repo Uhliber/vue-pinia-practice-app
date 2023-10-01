@@ -4,6 +4,7 @@ import EventDetails from './views/EventDetails.vue'
 import EventCreate from './views/EventCreate.vue'
 import ErrorDisplay from './views/ErrorDisplay.vue'
 import About from './views/About.vue'
+import Todo from './views/Todo.vue'
 
 const routes = [
   {
@@ -21,6 +22,11 @@ const routes = [
     path: '/event/create',
     name: 'EventCreate',
     component: EventCreate
+  },
+  {
+    path: '/todo',
+    name: 'Todo',
+    component: Todo
   },
   {
     path: '/about',

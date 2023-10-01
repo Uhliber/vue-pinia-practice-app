@@ -1,7 +1,8 @@
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { useUserStore } from './stores/UserStore'
 
-export default {
+export default defineComponent({
   setup() {
     const userStore = useUserStore()
 
@@ -9,16 +10,17 @@ export default {
       userStore
     }
   }
-}
+})
 </script>
 
 <template>
   <div id="app">
     <div id="nav">
-      <router-link :to="{ name: 'EventList' }">Events</router-link> |
-      <router-link :to="{ name: 'About' }">About</router-link>
+      <router-link :to="{ name: 'EventList' }">Events</router-link>
       |
-      <router-link :to="{ name: 'EventCreate' }">Create Event</router-link>
+      <router-link :to="{ name: 'Todo' }">Todo</router-link>
+      |
+      <router-link :to="{ name: 'About' }">About</router-link>
       |
       <p>Logged in as {{ userStore.firstName }}</p>
     </div>

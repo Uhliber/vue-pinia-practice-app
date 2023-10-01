@@ -1,9 +1,11 @@
-<script>
+<script lang="ts">
+import { defineComponent } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { useEventStore } from '../stores/EventStore'
 import { useUserStore } from '../stores/UserStore'
+import { EventItem, eventCategories } from '@/types'
 
-export default {
+export default defineComponent({
   data() {
     return {
       categories: [
@@ -17,7 +19,7 @@ export default {
       ],
       event: {
         id: '',
-        category: '',
+        category: '' as eventCategories,
         title: '',
         description: '',
         location: '',
@@ -38,7 +40,7 @@ export default {
   },
   methods: {
     onSubmit() {
-      const event = {
+      const event: EventItem = {
         ...this.event,
         id: uuidv4(),
         organizer: this.userStore.user
@@ -58,7 +60,7 @@ export default {
       })
     }
   }
-}
+})
 </script>
 
 <template>
