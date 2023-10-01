@@ -1,0 +1,64 @@
+{
+  "events": [
+    {
+      "id": 123,
+      "category": "animal welfare",
+      "title": "Cat Adoption Day",
+      "description": "Find your new feline friend at this event.",
+      "location": "Meow Town",
+      "date": "January 28, 2022",
+      "time": "12:00",
+      "organizer": "Kat Laydee"
+    },
+    {
+      "id": 456,
+      "category": "food",
+      "title": "Community Gardening",
+      "description": "Join us as we tend to the community edible plants.",
+      "location": "Flora City",
+      "date": "March 14, 2022",
+      "time": "10:00",
+      "organizer": "Fern Pollin"
+    },
+    {
+      "id": 789,
+      "category": "sustainability",
+      "title": "Beach Cleanup",
+      "description": "Help pick up trash along the shore.",
+      "location": "Playa Del Carmen",
+      "date": "July 22, 2022",
+      "time": "11:00",
+      "organizer": "Carey Wales"
+    },
+    {
+      "id": "42a2dee3-3fcc-496d-b557-520ffec72fc2",
+      "category": "nature",
+      "title": "Nature Event",
+      "description": "Beautiful Nature Oh my!",
+      "location": "Japan",
+      "date": "July 1, 2028",
+      "time": "10:00am",
+      "organizer": "Ben Hong"
+    },
+    {
+      "id": "99dd6393-58ca-447f-9c60-e5e5254f457c",
+      "category": "community",
+      "title": "New Event",
+      "description": "DEscription",
+      "location": "Location",
+      "date": "Date",
+      "time": "Time",
+      "organizer": "Ben Hong"
+    },
+    {
+      "id": "af51a3c1-0734-4f34-bc15-ec2fa4585196",
+      "category": "housing",
+      "title": "Housing Event",
+      "description": "BEautiful housing",
+      "location": "Anywhere",
+      "date": "Date",
+      "time": "1 okklak",
+      "organizer": "Ben Hong"
+    }
+  ]
+}
