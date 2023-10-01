@@ -1,16 +1,7 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
 import { useUserStore } from './stores/UserStore'
 
-export default defineComponent({
-  setup() {
-    const userStore = useUserStore()
-
-    return {
-      userStore
-    }
-  }
-})
+const userStore = useUserStore()
 </script>
 
 <template>

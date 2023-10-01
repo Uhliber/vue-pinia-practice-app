@@ -1,66 +1,57 @@
-<script lang="ts">
-import { defineComponent } from 'vue'
+<script lang="ts" setup>
+import { reactive, ref } from 'vue'
 import { v4 as uuidv4 } from 'uuid'
 import { useEventStore } from '../stores/EventStore'
 import { useUserStore } from '../stores/UserStore'
 import { EventItem, eventCategories } from '@/types'
+import { useRouter } from 'vue-router'
 
-export default defineComponent({
-  data() {
-    return {
-      categories: [
-        'sustainability',
-        'nature',
-        'animal welfare',
-        'housing',
-        'education',
-        'food',
-        'community'
-      ],
-      event: {
-        id: '',
-        category: '' as eventCategories,
-        title: '',
-        description: '',
-        location: '',
-        date: '',
-        time: '',
-        organizer: ''
-      }
-    }
-  },
-  setup() {
-    const eventStore = useEventStore()
-    const userStore = useUserStore()
+const eventStore = useEventStore()
+const userStore = useUserStore()
+const router = useRouter()
 
-    return {
-      eventStore,
-      userStore
-    }
-  },
-  methods: {
-    onSubmit() {
-      const event: EventItem = {
-        ...this.event,
-        id: uuidv4(),
-        organizer: this.userStore.user
-      }
-      this.eventStore.createEvent(event)
-      .then(() => {
-        this.$router.push({
+const categories = ref([
+  'sustainability',
+  'nature',
+  'animal welfare',
+  'housing',
+  'education',
+  'food',
+  'community'
+])
+
+const event = reactive({
+  id: '',
+  category: '' as eventCategories,
+  title: '',
+  description: '',
+  location: '',
+  date: '',
+  time: '',
+  organizer: ''
+})
+
+const onSubmit = () => {
+  const eventData: EventItem = {
+    ...event,
+    id: uuidv4(),
+    organizer: userStore.user
+  }
+  
+  eventStore.createEvent(eventData)
+    .then(() => {
+      router.push({
           name: 'EventDetails',
-          params: { id: event.id }
+          params: { id: eventData.id }
         })
       })
       .catch(error => {
-        this.$router.push({
-          name: 'ErrorDisplay',
-          params: { error: error }
-        })
+      router.push({
+        name: 'ErrorDisplay',
+        params: { error: error }
       })
-    }
-  }
-})
+    })
+}
 </script>
 
 <template>
